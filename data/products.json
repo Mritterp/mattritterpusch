@@ -10,7 +10,7 @@
     "isNew": true,
     "audioPreview": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Unleashed%20Library%20Cut.wav",
     "youtubeId": "1UoXhO2EYCM",
-    "stripeLink": "REPLACE_WITH_STRIPE_PAYMENT_LINK",
+    "stripeLink": "https://buy.stripe.com/test_6oU8wP6yOcMF0GS0Ryao800",
     "fileListUrl": "https://drive.google.com/file/d/1l18gi417fFGkGkszPSWP0Lhcr5rv8mr2/view?usp=sharing",
     "cover": "images/covers/porsche-912.png"
   },
@@ -25,7 +25,7 @@
     "isNew": false,
     "audioPreview": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/TYO%20Workbench.wav",
     "youtubeId": "BnHh9RGy5Gw",
-    "stripeLink": "REPLACE_WITH_STRIPE_PAYMENT_LINK",
+    "stripeLink": "https://buy.stripe.com/test_3cI7sL9L0h2VfBM1VCao801",
     "fileListUrl": "https://drive.google.com/file/d/13kYYje2sOOfi0-yocc2wyV9bkfcW03tX/view?usp=drive_link",
     "cover": "images/covers/workbench.jpg"
   },
@@ -40,7 +40,7 @@
     "isNew": false,
     "audioPreview": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/TYO%20Ambiences.wav",
     "youtubeId": "ncZSuNK8ugI",
-    "stripeLink": "REPLACE_WITH_STRIPE_PAYMENT_LINK",
+    "stripeLink": "https://buy.stripe.com/test_3cI00j9L0fYR75gas8ao802",
     "fileListUrl": "https://drive.google.com/file/d/1sn4V-PGka5IPHOObhmgTB0F7e1FqGn6D/view?usp=drive_link",
     "cover": "images/covers/ambiences.jpg"
   },
@@ -55,7 +55,7 @@
     "isNew": false,
     "audioPreview": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/TYO%20Creatures%20and%20People.wav",
     "youtubeId": "4GHXVzvFSDM",
-    "stripeLink": "REPLACE_WITH_STRIPE_PAYMENT_LINK",
+    "stripeLink": "https://buy.stripe.com/test_9B68wP5uKfYR89kcAgao803",
     "fileListUrl": "https://drive.google.com/file/d/1oI1ftgpE5UUij0v37uWs54I5ER2dkVXY/view?usp=drive_link",
     "cover": "images/covers/creatures-and-people.jpg"
   },
@@ -70,7 +70,7 @@
     "isNew": false,
     "audioPreview": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/TYO%20Household.wav",
     "youtubeId": "GshyhRbSu6g",
-    "stripeLink": "REPLACE_WITH_STRIPE_PAYMENT_LINK",
+    "stripeLink": "https://buy.stripe.com/test_eVqdR93mC13XgFQeIoao804",
     "fileListUrl": "https://drive.google.com/file/d/19VunncoHtmyh7hTE2xPEZCIwGV8GnCnb/view?usp=drive_link",
     "cover": "images/covers/household.jpg"
   },
@@ -85,7 +85,7 @@
     "isNew": false,
     "audioPreview": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/TYO%20Synthesis%20and%20Sound%20Design.wav",
     "youtubeId": "shiE1kYY-jg",
-    "stripeLink": "REPLACE_WITH_STRIPE_PAYMENT_LINK",
+    "stripeLink": "https://buy.stripe.com/test_14A9AT5uKh2V89kdEkao805",
     "fileListUrl": "https://drive.google.com/file/d/1Hn8cInBagku9okTomMaSn1iGJW_GBsEz/view?usp=drive_link",
     "cover": "images/covers/synthesis-and-sound-design.jpg"
   }
