@@ -230,7 +230,7 @@ a { color: inherit; }
    Home — three hover-video panels + tagline + candid photo
    ========================================================================== */
 .home-hero-spacer { height: 80px; }
-.home-panels { display: flex; }
+.home-panels { display: flex; position: relative; }
 .home-panel {
   position: relative; flex: 1; min-height: 860px; overflow: hidden;
   clip-path: inset(0);
@@ -241,13 +241,24 @@ a { color: inherit; }
   filter: grayscale(100%); transition: filter 300ms ease; pointer-events: none;
 }
 .home-panel:hover .home-panel__video { filter: grayscale(0%); }
-.home-panel__overlay {
-  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+.home-panel__color-wash {
+  position: absolute; inset: 0; background: var(--accent);
+  opacity: 0; transition: opacity 300ms ease; pointer-events: none;
+}
+.home-panel:hover .home-panel__color-wash { opacity: 0.35; }
+
+/* Title + arrow reveal is a single element centered on the whole
+   3-panel row (not scoped to the hovered panel) -- matches the live
+   site, where only the color wash is panel-scoped. */
+.home-panels__overlay {
+  position: absolute; inset: 0; pointer-events: none;
+  display: flex; align-items: center; justify-content: center;
+}
+.home-panels__title-group {
+  position: absolute; display: flex; align-items: center; gap: 16px;
   opacity: 0; transition: opacity 300ms ease;
 }
-.home-panel:hover .home-panel__overlay { opacity: 1; }
-.home-panel__color-wash { position: absolute; inset: 0; background: var(--accent); opacity: 0.35; }
-.home-panel__title-wrap { position: relative; display: flex; align-items: center; gap: 16px; }
+.home-panels__title-group.is-active { opacity: 1; }
 .home-panel__title {
   font-family: var(--font-headline); font-weight: 700; color: #FFFFFF;
   font-size: clamp(40px, 6vw, 96px); white-space: nowrap;

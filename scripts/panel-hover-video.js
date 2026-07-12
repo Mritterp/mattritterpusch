@@ -1,22 +1,26 @@
 // Home page — hover-video panels (TYO Sound / Mixing / Films)
-// Visual grayscale/overlay transitions are handled by CSS :hover;
-// this just drives video playback since autoplaying muted video still
-// needs an explicit play() call triggered by interaction on some browsers.
+// Color wash is scoped to the hovered panel (CSS :hover), but the
+// title+arrow reveal is a single element centered on the whole row —
+// toggle its "is-active" state here based on which panel is hovered.
 (function () {
   document.querySelectorAll('.home-panel').forEach(function (panel) {
     var video = panel.querySelector('.home-panel__video');
-    if (!video) return;
-    video.muted = true;
-    video.loop = true;
-    video.playsInline = true;
-    video.preload = 'auto';
+    var key = panel.getAttribute('data-panel');
+    var titleGroup = document.querySelector('.home-panels__title-group[data-for="' + key + '"]');
+    if (video) {
+      video.muted = true;
+      video.loop = true;
+      video.playsInline = true;
+      video.preload = 'auto';
+    }
 
     panel.addEventListener('mouseenter', function () {
-      video.play();
+      if (video) video.play();
+      if (titleGroup) titleGroup.classList.add('is-active');
     });
     panel.addEventListener('mouseleave', function () {
-      video.pause();
-      video.currentTime = 0;
+      if (video) { video.pause(); video.currentTime = 0; }
+      if (titleGroup) titleGroup.classList.remove('is-active');
     });
   });
 })();
