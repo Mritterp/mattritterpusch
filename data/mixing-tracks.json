@@ -1,0 +1,16 @@
+{
+  "featured": {
+    "title": "Friend of the Devil",
+    "artist": "Tanjo & Crow",
+    "tags": ["Mixing", "Recording"],
+    "youtubeId": "dNLXrXLbC9w"
+  },
+  "tracks": [
+    { "title": "Satisfaction", "artist": "Amber Rubarth", "duration": "04:57", "audioUrl": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Amber%20Rubarth%20-%20Satisfaction.wav" },
+    { "title": "Down By the Old Mill Stream", "artist": "Erik McIntyre", "duration": "4:12", "audioUrl": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Eric%20Test%202.wav" },
+    { "title": "Steady in the Hand", "artist": "Hannah Frances", "duration": "5:34", "audioUrl": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Hannah%20Francis%20-%20steady%20in%20the%20hand.wav" },
+    { "title": "Calibration", "artist": "Tanjo and Crow", "duration": "3:46", "audioUrl": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Tanjo%20and%20Crow%20Calibration%20Master%20V6.wav" },
+    { "title": "Mosabik", "artist": "Tanjo and Crow", "duration": "4:20", "audioUrl": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Tanjo%20and%20Crow%20Mosabik%20Master%20V1.wav" },
+    { "title": "Virginia Skyline", "artist": "Tanjo and Crow", "duration": "4:28", "audioUrl": "https://pub-77ddc065632d441db8d4e6cc7989e204.r2.dev/Tanjo%20and%20Crow%20Virginia%20Skyline%20Master%20V5.wav" }
+  ]
+}
