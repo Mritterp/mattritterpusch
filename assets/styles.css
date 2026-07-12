@@ -233,6 +233,7 @@ a { color: inherit; }
 .home-panels { display: flex; }
 .home-panel {
   position: relative; flex: 1; min-height: 860px; overflow: hidden;
+  clip-path: inset(0);
   background: #1c1c1c; text-decoration: none; display: block;
 }
 .home-panel__video {
