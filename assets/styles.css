@@ -303,13 +303,18 @@ a { color: inherit; }
 }
 .home-panel__arrow { width: 44px; height: auto; }
 
+/* Below the tablet/mobile breakpoint there's no hover, so each panel
+   shows its own title always -- the shared row-centered hover overlay
+   is desktop-only (see media query). */
+.home-panel__title-mobile { display: none; }
+
 .home-about { background: #000000; padding: 64px 0; text-align: center; flex-shrink: 0; }
 .home-about p {
   font-family: var(--font-headline); font-size: 18px; color: #FFFFFF;
   margin: 0 auto; padding: 0 var(--page-pad-desktop);
 }
 
-.home-photo { display: block; width: 100%; min-height: 60vh; overflow: hidden; }
+.home-photo { display: block; width: 100%; height: 60vh; overflow: hidden; }
 .home-photo img { width: 100%; height: 100%; object-fit: cover; }
 
 /* ==========================================================================
@@ -425,12 +430,26 @@ a { color: inherit; }
   .home-about p, .store-hero__info, .store-toolbar, .store-grid, .mixing-intro, .mixing-list {
     padding-left: var(--page-pad-tablet); padding-right: var(--page-pad-tablet);
   }
-  .site-nav { padding-left: var(--page-pad-tablet); padding-right: var(--page-pad-tablet); }
+  .site-nav { padding: 15px var(--page-pad-tablet) 0; }
+  .site-nav__logo img { height: 31px; }
+  .site-nav__store { font-size: 14px; padding: 8px 16px; }
   .nav-drawer { padding-left: var(--page-pad-tablet); padding-right: var(--page-pad-tablet); }
+  .nav-drawer__link { font-size: clamp(28px, 9vw, 44px); }
   .mixing-split, .store-hero, .pdp-media { grid-template-columns: 1fr; }
   .mixing-intro { border-right: none; border-bottom: 1px solid var(--hairline); }
-  .home-panels { flex-direction: column; }
-  .home-panel { min-height: 320px; }
+
+  /* Panels stop filling the viewport and stack as fixed-height cards
+     with a visible gap and inset, matching the live site's mobile
+     nav -- their own title is always shown since there's no hover. */
+  .home-hero { min-height: 0; }
+  .home-panels { flex-direction: column; flex: none; gap: 20px; padding: 0 10px; min-height: 0; }
+  .home-panel { flex: none; height: 300px; display: flex; align-items: center; }
+  .home-panels__overlay { display: none; }
+  .home-panel__title-mobile {
+    display: block; position: relative; z-index: 5;
+    font-family: var(--font-headline); font-weight: 700; color: #FFFFFF;
+    font-size: clamp(28px, 9vw, 37px); padding: 0 24px;
+  }
 }
 @media (max-width: 478px) {
   .site-nav, .site-footer, .breadcrumb, .pdp-header, .price-bar, .pdp-media, .pdp-filelist,
