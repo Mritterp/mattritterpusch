@@ -46,7 +46,14 @@
       return;
     }
 
-    if (e.target.closest('.card-transport')) return;
+    // Anywhere else in the translucent transport bar acts as a big stop
+    // target -- must preventDefault too, or the card's <a> still navigates.
+    if (e.target.closest('.card-transport')) {
+      e.preventDefault();
+      e.stopPropagation();
+      stopAll();
+      return;
+    }
 
     var btn = e.target.closest('.store-card__play');
     if (!btn) return;
