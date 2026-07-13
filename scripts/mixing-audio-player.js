@@ -17,6 +17,7 @@
     current.btn.classList.remove('play-btn--pause');
     current.btn.classList.add('play-btn--play');
     current.player.classList.remove('open');
+    current.row.classList.remove('is-playing');
     if (current.rafId) cancelAnimationFrame(current.rafId);
     current = null;
   }
@@ -89,6 +90,7 @@
       btn.classList.remove('play-btn--play');
       btn.classList.add('play-btn--pause');
       player.classList.add('open');
+      row.classList.add('is-playing');
       audio.play();
 
       function tick() {
