@@ -446,12 +446,13 @@ a { color: inherit; }
      nav -- their own title is always shown since there's no hover. */
   .home-hero { min-height: 0; }
   .home-panels { flex-direction: column; flex: none; gap: 20px; padding: 0 10px; min-height: 0; }
-  .home-panel { flex: none; height: 300px; display: flex; align-items: center; }
+  .home-panel { flex: none; height: 300px; display: flex; align-items: center; border-radius: 15px; clip-path: inset(0 round 15px); }
   .home-panels__overlay { display: none; }
   .home-panel__title-mobile {
-    display: block; position: relative; z-index: 5;
+    display: block; position: relative; z-index: 5; width: 100%;
     font-family: var(--font-headline); font-weight: 700; color: #FFFFFF;
     font-size: clamp(28px, 9vw, 37px); padding: 0 24px;
+    text-align: center;
   }
 }
 @media (max-width: 478px) {
