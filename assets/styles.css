@@ -28,7 +28,7 @@
   /* Fonts */
   --font-display: Georgia, 'Times New Roman', serif;
   --font-ui:      'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-headline: 'Space Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-headline: 'Stage Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-mono:    'SF Mono', Menlo, Consolas, monospace;
   --tracking-label: 0.16em;
 
@@ -53,25 +53,60 @@
 }
 
 @font-face {
-  font-family: 'Space Grotesk';
+  font-family: 'Stage Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/StageGrotesk-Light.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Stage Grotesk';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/StageGrotesk-LightItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Stage Grotesk';
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('fonts/space-grotesk.woff2') format('woff2');
+  src: url('fonts/StageGrotesk-Regular.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Space Grotesk';
-  font-style: normal;
-  font-weight: 500;
+  font-family: 'Stage Grotesk';
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: url('fonts/space-grotesk.woff2') format('woff2');
+  src: url('fonts/StageGrotesk-Italic.woff2') format('woff2');
 }
 @font-face {
-  font-family: 'Space Grotesk';
+  font-family: 'Stage Grotesk';
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('fonts/space-grotesk.woff2') format('woff2');
+  src: url('fonts/StageGrotesk-Bold.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Stage Grotesk';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('fonts/StageGrotesk-BoldItalic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Stage Grotesk';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/StageGrotesk-Black.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Stage Grotesk';
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fonts/StageGrotesk-BlackItalic.woff2') format('woff2');
 }
 
 ::selection      { background: var(--accent); color: #FFFFFF; }
