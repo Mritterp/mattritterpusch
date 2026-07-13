@@ -189,12 +189,12 @@ a { color: inherit; }
   position: fixed; inset: 0; z-index: 490;
   background: #000000;
   opacity: 0; pointer-events: none;
-  transition: opacity 300ms var(--ease-out);
+  transition: opacity 300ms var(--ease-out) 400ms;
   display: flex; flex-direction: column; align-items: center;
   padding: 100px var(--page-pad-desktop) 60px;
   box-sizing: border-box;
 }
-.nav-drawer.is-open { opacity: 1; pointer-events: all; }
+.nav-drawer.is-open { opacity: 1; pointer-events: all; transition-delay: 0ms; }
 /* Links block is vertically centered in the space above the social
    row (which stays pinned near the bottom); text stays left-aligned
    within the centered 1140px-wide block. */
