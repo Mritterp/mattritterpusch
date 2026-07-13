@@ -313,7 +313,7 @@ a { color: inherit; }
   font-size: 96px; line-height: 1; white-space: nowrap;
   text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
-.home-panel__arrow { width: 60px; height: auto; }
+.home-panel__arrow { width: 60px; height: auto; position: relative; top: 4px; }
 
 /* Below the tablet/mobile breakpoint there's no hover, so each panel
    shows its own title always -- the shared row-centered hover overlay
