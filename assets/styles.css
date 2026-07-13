@@ -229,10 +229,13 @@ a { color: inherit; }
 /* ==========================================================================
    Home — three hover-video panels + tagline + candid photo
    ========================================================================== */
-.home-hero-spacer { height: 80px; }
-.home-panels { display: flex; position: relative; }
+/* Spacer + panels + tagline together fill exactly one viewport height
+   on load; panels absorb whatever space the spacer/tagline don't use. */
+.home-hero { min-height: 100vh; display: flex; flex-direction: column; }
+.home-hero-spacer { height: 80px; flex-shrink: 0; }
+.home-panels { display: flex; position: relative; flex: 1; min-height: 480px; }
 .home-panel {
-  position: relative; flex: 1; min-height: 860px; overflow: hidden;
+  position: relative; flex: 1; overflow: hidden;
   clip-path: inset(0);
   background: #1c1c1c; text-decoration: none; display: block;
 }
@@ -265,10 +268,10 @@ a { color: inherit; }
 }
 .home-panel__arrow { width: 44px; height: auto; }
 
-.home-about { background: #000000; padding: 50px 0; text-align: center; }
+.home-about { background: #000000; padding: 64px 0; text-align: center; flex-shrink: 0; }
 .home-about p {
   font-family: var(--font-headline); font-size: 18px; color: #FFFFFF;
-  max-width: 720px; margin: 0 auto; padding: 0 var(--page-pad-desktop);
+  margin: 0 auto; padding: 0 var(--page-pad-desktop);
 }
 
 .home-photo { display: block; width: 100%; min-height: 60vh; overflow: hidden; }
