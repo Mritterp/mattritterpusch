@@ -304,9 +304,10 @@ a { color: inherit; }
 .home-panels__title-group.is-active { opacity: 1; }
 .home-panel__title {
   font-family: var(--font-headline); font-weight: 700; color: #FFFFFF;
-  font-size: clamp(40px, 6vw, 96px); white-space: nowrap;
+  font-size: 96px; line-height: 1; white-space: nowrap;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
 }
-.home-panel__arrow { width: 44px; height: auto; }
+.home-panel__arrow { width: 60px; height: auto; }
 
 /* Below the tablet/mobile breakpoint there's no hover, so each panel
    shows its own title always -- the shared row-centered hover overlay
@@ -315,7 +316,7 @@ a { color: inherit; }
 
 .home-about { background: #000000; padding: 64px 0; text-align: center; flex-shrink: 0; }
 .home-about p {
-  font-family: var(--font-headline); font-size: 18px; color: #FFFFFF;
+  font-family: var(--font-headline); font-size: 18px; line-height: 40px; color: #FFFFFF;
   margin: 0 auto; padding: 0 var(--page-pad-desktop);
 }
 
