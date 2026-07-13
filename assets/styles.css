@@ -372,9 +372,10 @@ a { color: inherit; }
 /* ==========================================================================
    Store — hero + filter chips + card grid
    ========================================================================== */
-.store-hero { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 52vh; border-bottom: 1px solid var(--hairline); margin-top: 80px; }
-.store-hero__cover { position: relative; overflow: hidden; background: var(--black); }
+.store-hero { position: relative; display: grid; grid-template-columns: 1fr 1fr; min-height: 52vh; border: 1px solid var(--ink); margin: 80px var(--page-pad-desktop) 0; }
+.store-hero__cover { position: relative; overflow: hidden; background: var(--black); border-right: 1px solid var(--ink); aspect-ratio: 16/9; }
 .store-hero__cover img { width: 100%; height: 100%; object-fit: cover; }
+.store-hero__cover iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .store-hero__info { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
 .store-hero__info h1 { font-family: var(--font-display); font-size: 36px; font-weight: 400; margin: 10px 0; color: var(--ink); }
 .store-hero__info p { font-size: 15px; color: var(--ink-secondary); line-height: 1.6; max-width: 420px; }
@@ -410,24 +411,32 @@ a { color: inherit; }
 .back { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color var(--duration-color) var(--ease-out); }
 .back:hover { color: var(--accent); }
 
-.pdp-header { padding: 16px var(--page-pad-desktop) 0; }
-.pdp-header .new-label { margin-bottom: 0; }
-.pdp-title { font-family: var(--font-ui); font-weight: 800; font-size: clamp(36px, 5vw, 56px); letter-spacing: -0.03em; margin: 8px 0 0; color: var(--ink); }
-.pdp-desc { font-size: 16px; line-height: 1.7; color: var(--ink-secondary); margin-top: 14px; max-width: 640px; }
+/* Split panel: bordered video+price column on the left, meta/title/
+   description/preview-player column on the right -- same two-column
+   pattern as .mixing-split, with the video panel using the same solid
+   ink border treatment as .store-hero. */
+.pdp-split { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 16px var(--page-pad-desktop) 64px; align-items: start; }
+
+.pdp-media-col { border: 1px solid var(--ink); }
+.pdp-video { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--black); }
+.pdp-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pdp-media-col .price-bar { margin: 0; padding: 16px 24px; border-top: 1px solid var(--ink); }
+
+.pdp-info-col .new-label { margin-bottom: 0; }
+.pdp-title { font-family: var(--font-ui); font-weight: 800; font-size: clamp(28px, 3vw, 42px); letter-spacing: -0.03em; margin: 8px 0 0; color: var(--ink); }
+.pdp-desc { font-size: 16px; line-height: 1.7; color: var(--ink-secondary); margin-top: 14px; }
 .pdp-desc a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); }
 .pdp-desc a:hover { color: var(--accent-hover); border-color: var(--accent-hover); }
 
-.price-bar { display: flex; align-items: center; gap: 24px; background: var(--accent); color: #fff; margin: 28px 0; padding: 20px var(--page-pad-desktop); flex-wrap: wrap; }
+.pdp-preview { margin-top: 28px; }
+
+.price-bar { display: flex; align-items: center; gap: 24px; background: var(--accent); color: #fff; flex-wrap: wrap; }
 .price-bar__price { font-family: var(--font-ui); font-weight: 800; font-size: 32px; }
 .price-bar__note { font-size: 12px; opacity: 0.85; flex: 1; }
 .price-bar__btn { background: #fff; color: var(--accent); font-size: 11px; font-weight: 700; padding: 12px 24px; }
 .price-bar__btn:hover { background: #EAEAEA; }
 
-.pdp-media { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 0 var(--page-pad-desktop) 40px; align-items: start; }
-.pdp-video { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--black); }
-.pdp-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-
-.pdp-filelist { padding: 0 var(--page-pad-desktop) 64px; }
+.pdp-filelist { margin-top: 24px; }
 .pdp-filelist a { font-size: 12px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 .pdp-filelist a:hover { color: var(--accent-hover); border-color: var(--accent-hover); }
 
@@ -443,7 +452,7 @@ a { color: inherit; }
    Responsive
    ========================================================================== */
 @media (max-width: 860px) {
-  .site-nav, .site-footer, .breadcrumb, .pdp-header, .price-bar, .pdp-media, .pdp-filelist,
+  .site-nav, .site-footer, .breadcrumb, .pdp-split,
   .home-about p, .store-hero__info, .store-toolbar, .store-grid, .mixing-intro, .mixing-list {
     padding-left: var(--page-pad-tablet); padding-right: var(--page-pad-tablet);
   }
@@ -452,8 +461,10 @@ a { color: inherit; }
   .site-nav__store { font-size: 14px; padding: 8px 16px; }
   .nav-drawer { padding-left: var(--page-pad-tablet); padding-right: var(--page-pad-tablet); }
   .nav-drawer__link { font-size: clamp(28px, 9vw, 44px); }
-  .mixing-split, .store-hero, .pdp-media { grid-template-columns: 1fr; }
+  .mixing-split, .store-hero, .pdp-split { grid-template-columns: 1fr; }
   .mixing-intro { border-right: none; border-bottom: 1px solid var(--hairline); }
+  .store-hero { margin-left: var(--page-pad-tablet); margin-right: var(--page-pad-tablet); }
+  .store-hero__cover { border-right: none; border-bottom: 1px solid var(--ink); }
 
   /* Panels stop filling the viewport and stack as fixed-height cards
      with a visible gap and inset, matching the live site's mobile
@@ -470,7 +481,7 @@ a { color: inherit; }
   }
 }
 @media (max-width: 478px) {
-  .site-nav, .site-footer, .breadcrumb, .pdp-header, .price-bar, .pdp-media, .pdp-filelist,
+  .site-nav, .site-footer, .breadcrumb, .pdp-split,
   .home-about p, .store-hero__info, .store-toolbar, .store-grid, .mixing-intro, .mixing-list {
     padding-left: var(--page-pad-mobile); padding-right: var(--page-pad-mobile);
   }
