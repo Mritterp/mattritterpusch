@@ -30,7 +30,7 @@
   var wrap = document.createElement('div');
   wrap.className = 'prod-player';
   wrap.innerHTML = [
-    '<button class="prod-play-btn" type="button">Preview</button>',
+    '<button class="play-btn play-btn--play" type="button" aria-label="Preview ' + product.title + '"></button>',
     '<div class="prod-transport">',
     '  <span class="prod-time">0:00</span>',
     '  <div class="prod-track"><div class="prod-fill"></div></div>',
@@ -42,7 +42,7 @@
   ].join('');
   mount.appendChild(wrap);
 
-  var btn = wrap.querySelector('.prod-play-btn');
+  var btn = wrap.querySelector('.play-btn');
   var fill = wrap.querySelector('.prod-fill');
   var timeEl = wrap.querySelector('.prod-time');
   var track = wrap.querySelector('.prod-track');
@@ -83,33 +83,48 @@
     au.currentTime = (e.clientX - rect.left) / rect.width * au.duration;
   });
 
+  function tick() {
+    if (!au || !playing) return;
+    var pct = au.duration ? au.currentTime / au.duration * 100 : 0;
+    fill.style.width = pct + '%';
+    timeEl.textContent = fmt(au.currentTime);
+    rafId = requestAnimationFrame(tick);
+  }
+
+  // Pause in place: keeps the playhead position, just flips the icon.
+  function pause() {
+    if (au) au.pause();
+    playing = false;
+    btn.classList.remove('play-btn--pause');
+    btn.classList.add('play-btn--play');
+    if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+  }
+
+  function resume() {
+    au.play();
+    playing = true;
+    btn.classList.remove('play-btn--play');
+    btn.classList.add('play-btn--pause');
+    rafId = requestAnimationFrame(tick);
+  }
+
+  // Full stop: resets the playhead. Only used when the track finishes.
   function stop() {
     if (au) { au.pause(); au.currentTime = 0; }
     playing = false;
-    btn.classList.remove('is-playing');
-    btn.textContent = 'Preview';
+    btn.classList.remove('play-btn--pause');
+    btn.classList.add('play-btn--play');
     fill.style.width = '0%';
     timeEl.textContent = '0:00';
     if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
   }
 
   btn.addEventListener('click', function () {
-    if (playing) { stop(); return; }
-    if (!au) {
-      au = new Audio(src);
-      au.volume = volume / 100;
-      au.onended = stop;
-    }
-    au.play();
-    playing = true;
-    btn.classList.add('is-playing');
-    btn.textContent = 'Pause';
-    (function tick() {
-      if (!au || !playing) return;
-      var pct = au.duration ? au.currentTime / au.duration * 100 : 0;
-      fill.style.width = pct + '%';
-      timeEl.textContent = fmt(au.currentTime);
-      rafId = requestAnimationFrame(tick);
-    })();
+    if (playing) { pause(); return; }
+    if (au) { resume(); return; }
+    au = new Audio(src);
+    au.volume = volume / 100;
+    au.onended = stop;
+    resume();
   });
 })();

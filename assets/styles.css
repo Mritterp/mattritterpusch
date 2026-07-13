@@ -441,8 +441,7 @@ a { color: inherit; }
 .pdp-filelist a:hover { color: var(--accent-hover); border-color: var(--accent-hover); }
 
 .prod-player { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); flex-wrap: wrap; }
-.prod-play-btn { display: flex; align-items: center; gap: 10px; background: var(--ink); color: #FFFFFF; border: none; font-family: var(--font-ui); font-size: 10px; font-weight: 600; letter-spacing: var(--tracking-label); text-transform: uppercase; padding: 10px 16px; cursor: pointer; white-space: nowrap; }
-.prod-play-btn:hover, .prod-play-btn.is-playing { background: var(--accent); }
+.prod-player .play-btn { flex-shrink: 0; }
 .prod-transport { flex: 1; display: flex; align-items: center; gap: 12px; min-width: 160px; }
 .prod-track { flex: 1; height: 4px; background: var(--hairline); position: relative; cursor: pointer; }
 .prod-fill { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--accent); pointer-events: none; }
