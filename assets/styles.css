@@ -257,16 +257,20 @@ a { color: inherit; }
 .btn-outline { background: transparent; border: 1px solid var(--ink); color: var(--ink); font-size: 10px; font-weight: 500; padding: 7px 12px; }
 .btn-outline:hover { background: var(--ink); color: #FFFFFF; }
 
-.play-btn { width: 38px; height: 38px; border: 1px solid var(--ink); background: transparent; position: relative; cursor: pointer; padding: 0; transition: background var(--duration-color) var(--ease-out); }
+.play-btn { width: 38px; height: 38px; flex-shrink: 0; border: 1px solid var(--ink); background: transparent; position: relative; cursor: pointer; padding: 0; transition: background var(--duration-color) var(--ease-out); }
 .play-btn--play::after { content: ''; position: absolute; top: 50%; left: 54%; transform: translate(-50%,-50%); width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 12px; border-color: transparent transparent transparent var(--ink); }
 .play-btn--pause::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 4px; height: 14px; background: transparent; box-shadow: -5px 0 0 0 var(--ink), 5px 0 0 0 var(--ink); }
+.play-btn--stop::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); width: 12px; height: 12px; background: var(--ink); }
 .play-btn.on-image { background: rgba(255,255,255,0.92); border: none; }
 .play-btn.on-image:hover { background: var(--accent); }
-.play-btn.on-image.play-btn--pause { background: var(--accent); }
+.play-btn.on-image.play-btn--pause,
+.play-btn.on-image.play-btn--stop { background: var(--accent); }
 .play-btn.on-image:hover.play-btn--play::after,
 .play-btn.on-image.play-btn--pause::after { border-color: transparent transparent transparent #FFFFFF; }
 .play-btn.on-image:hover.play-btn--pause::after,
 .play-btn.on-image.play-btn--pause::after { background: transparent; box-shadow: -5px 0 0 0 #FFFFFF, 5px 0 0 0 #FFFFFF; }
+.play-btn.on-image:hover.play-btn--stop::after,
+.play-btn.on-image.play-btn--stop::after { background: #FFFFFF; }
 
 .volume-slider { display: flex; align-items: center; gap: 10px; }
 .volume-slider__track { position: relative; width: 84px; height: 4px; background: var(--hairline); cursor: pointer; }
@@ -395,7 +399,6 @@ a { color: inherit; }
 .store-card { display: flex; flex-direction: column; }
 .store-card__img-wrap { position: relative; display: block; aspect-ratio: 4/3; overflow: hidden; background: var(--black); }
 .store-card__img-wrap img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-.store-card__play { position: absolute; left: 12px; bottom: 12px; z-index: 2; }
 .store-card__body { padding: 16px 0 0; display: flex; flex-direction: column; flex: 1; }
 .store-card__meta { font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-muted); }
 .store-card__title-link { text-decoration: none; color: inherit; }
@@ -405,7 +408,12 @@ a { color: inherit; }
 .store-card__foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--hairline); margin-top: 14px; padding-top: 14px; }
 .price { font-family: var(--font-display); font-size: var(--text-price-size); color: var(--ink); }
 
-.card-transport { position: absolute; bottom: 0; left: 0; right: 0; height: 28px; background: rgba(0,0,0,0.65); display: flex; align-items: center; gap: 10px; padding: 0 12px; z-index: 2; }
+/* Card-mounted transport overlay -- the bar grows out from behind the
+   fixed-size play button (width 0 -> calc(100% - 48px)) rather than
+   appearing as a full-width bar on its own. */
+.card-transport-row { position: absolute; bottom: 12px; left: 12px; right: 12px; display: flex; align-items: center; z-index: 2; }
+.card-transport { display: flex; align-items: center; gap: 10px; height: 38px; margin-left: 0; width: 0; opacity: 0; overflow: hidden; background: rgba(0,0,0,0.65); border-radius: 2px; padding: 0; transition: width 380ms ease, opacity 260ms ease, margin-left 380ms ease, padding 380ms ease; }
+.card-transport.open { width: calc(100% - 48px); opacity: 1; margin-left: 10px; padding: 0 12px; }
 .ct-track { flex: 1; height: 6px; background: rgba(255,255,255,0.25); position: relative; cursor: pointer; }
 .ct-fill { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--accent); pointer-events: none; }
 .ct-time { font-family: var(--font-mono); font-size: 10px; color: #FFFFFF; min-width: 28px; text-align: right; }
