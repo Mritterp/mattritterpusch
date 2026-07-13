@@ -169,8 +169,8 @@ a { color: inherit; }
 /* ── Burger button (icon only — the live site's "Menu"/"Close" text
    label is present in markup but permanently display:none) ── */
 .burger-btn {
-  display: flex; align-items: center; cursor: pointer;
-  background: transparent; border: none; padding: 0; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; cursor: pointer;
+  background: transparent; border: none; padding: 12px; margin: -12px; flex-shrink: 0;
 }
 .burger-btn__label { display: none; }
 
@@ -459,7 +459,7 @@ a { color: inherit; }
      with a visible gap and inset, matching the live site's mobile
      nav -- their own title is always shown since there's no hover. */
   .home-hero { min-height: 0; }
-  .home-panels { flex-direction: column; flex: none; gap: 20px; padding: 0 10px; min-height: 0; }
+  .home-panels { flex-direction: column; flex: none; gap: 20px; padding: 0 10px 20px; min-height: 0; }
   .home-panel { flex: none; height: 300px; display: flex; align-items: center; border-radius: 15px; clip-path: inset(0 round 15px); }
   .home-panels__overlay { display: none; }
   .home-panel__title-mobile {
