@@ -10,6 +10,35 @@
     return m + ':' + ('0' + Math.floor(s % 60)).slice(-2);
   }
 
+  function tick() {
+    if (!current) return;
+    var audio = current.audio;
+    var pct = audio.duration ? audio.currentTime / audio.duration * 100 : 0;
+    current.fill.style.width = pct + '%';
+    current.timeEl.textContent = fmt(audio.currentTime);
+    current.rafId = requestAnimationFrame(tick);
+  }
+
+  // Pause in place: keeps the transport bar open and playhead position intact.
+  function pauseCurrent() {
+    if (!current) return;
+    current.audio.pause();
+    if (current.rafId) cancelAnimationFrame(current.rafId);
+    current.rafId = null;
+    current.btn.classList.remove('play-btn--pause');
+    current.btn.classList.add('play-btn--play');
+  }
+
+  function resumeCurrent() {
+    if (!current) return;
+    current.audio.play();
+    current.btn.classList.remove('play-btn--play');
+    current.btn.classList.add('play-btn--pause');
+    current.rafId = requestAnimationFrame(tick);
+  }
+
+  // Full stop: resets the playhead and collapses the transport bar.
+  // Used when switching to a different track or when a track finishes.
   function stop() {
     if (!current) return;
     current.audio.pause();
@@ -81,25 +110,24 @@
     });
 
     btn.addEventListener('click', function () {
-      if (current && current.row === row) { stop(); return; }
+      if (current && current.row === row) {
+        if (current.audio.paused) {
+          resumeCurrent();
+        } else {
+          pauseCurrent();
+        }
+        return;
+      }
       stop();
 
       var audio = new Audio(src);
       audio.volume = sharedVolume / 100;
-      current = { audio: audio, row: row, btn: btn, player: player };
+      current = { audio: audio, row: row, btn: btn, player: player, fill: fill, timeEl: timeEl, rafId: null };
       btn.classList.remove('play-btn--play');
       btn.classList.add('play-btn--pause');
       player.classList.add('open');
       row.classList.add('is-playing');
       audio.play();
-
-      function tick() {
-        if (!current || current.audio !== audio) return;
-        var pct = audio.duration ? audio.currentTime / audio.duration * 100 : 0;
-        fill.style.width = pct + '%';
-        timeEl.textContent = fmt(audio.currentTime);
-        current.rafId = requestAnimationFrame(tick);
-      }
       current.rafId = requestAnimationFrame(tick);
       audio.onended = stop;
     });
