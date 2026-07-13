@@ -190,12 +190,15 @@ a { color: inherit; }
   background: #000000;
   opacity: 0; pointer-events: none;
   transition: opacity 300ms var(--ease-out);
-  display: flex; flex-direction: column; justify-content: space-between;
+  display: flex; flex-direction: column; align-items: center; justify-content: space-between;
   padding: 100px var(--page-pad-desktop) 60px;
   box-sizing: border-box;
 }
 .nav-drawer.is-open { opacity: 1; pointer-events: all; }
-.nav-drawer__links { display: flex; flex-direction: column; }
+/* The links/social rows are centered as a block on the page, but the
+   text inside each stays left-aligned -- matches the live site's
+   drawer, which centers a ~1140px container rather than the text. */
+.nav-drawer__links { display: flex; flex-direction: column; width: 100%; max-width: 1140px; }
 .nav-drawer__link {
   position: relative; overflow: hidden;
   height: 1.2em; line-height: 1.2;
@@ -209,7 +212,7 @@ a { color: inherit; }
 .nav-drawer__link span.hover { position: absolute; top: 100%; left: 0; color: var(--accent); }
 .nav-drawer__link:hover span.default { transform: translateY(-100%); }
 .nav-drawer__link:hover span.hover { transform: translateY(-100%); }
-.nav-drawer__social { display: flex; gap: 16px; }
+.nav-drawer__social { display: flex; gap: 16px; width: 100%; max-width: 1140px; }
 .nav-drawer__social img { width: 32px; height: 32px; }
 
 /* ==========================================================================
