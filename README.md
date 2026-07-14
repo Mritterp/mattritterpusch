@@ -28,9 +28,9 @@ Static rebuild of Matt Ritterpusch's site (Webflow → GitHub Pages). No backend
 `data/*.json` are reference/source-of-truth copies — the actual pages are hand-authored static HTML (for SEO and zero-JS-dependency reasons), so if you edit a product's price/description/etc., update both the JSON and its corresponding `store/<slug>/index.html`.
 
 ## Before going live
-- **Stripe**: every "Buy Now" button currently points to a **test-mode** Payment Link (`buy.stripe.com/test_...`), created via the Stripe API against a `sk_test_...` key — these work end-to-end but never move real money. Once your Stripe account is activated for live payments, recreate the same 6 Products/Prices/Payment Links using a `sk_live_...` key (Stripe Dashboard → Payment Links, or re-run the same API calls) and swap the URLs in `store/index.html`, each `store/<slug>/index.html`, and `data/products.json`.
+- **Stripe**: live. Every "Buy Now" button now points to a real `buy.stripe.com/...` Payment Link, created directly in the Stripe Dashboard for each of the 6 Products/Prices. Confirm the account's business verification has finished (Dashboard shows Payment Link status as "Active", not "Paused") before pointing the domain here or announcing the site.
 - **Video/audio**: all hosted on the existing Cloudflare R2 bucket (`pub-77ddc065632d441db8d4e6cc7989e204.r2.dev`) — same URLs the Webflow site used, so no re-upload needed as long as that bucket stays live.
-- **Domain**: point `mattritterpusch.com` at this repo's GitHub Pages deployment (Settings → Pages → Custom domain), and update the Cloudflare DNS CNAME to the new `*.github.io` target.
+- **Domain**: point `mattritterpusch.com` at this repo's GitHub Pages deployment (Settings → Pages → Custom domain — the `CNAME` file is already in the repo root) and update DNS accordingly.
 
 ## Local preview
 ```
