@@ -469,7 +469,7 @@ a { color: inherit; }
 .error-page { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 140px var(--page-pad-desktop) 80px; }
 .error-page__code { font-family: var(--font-ui); font-weight: 800; font-size: clamp(32px, 4vw, 48px); letter-spacing: -0.03em; margin: 8px 0 0; color: var(--ink); }
 .error-page__desc { font-size: 16px; color: var(--ink-secondary); max-width: 420px; margin: 16px 0 28px; }
-.error-page__actions { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.error-page__actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
 /* ==========================================================================
    Responsive
