@@ -1,5 +1,6 @@
 import { verifyStripeSignature } from "./stripe-signature.js";
 import { PRODUCTS } from "./products.js";
+import { renderEmail } from "./email-template.js";
 
 export default {
   async fetch(request, env) {
@@ -68,13 +69,8 @@ async function sendConfirmationEmail(apiKey, to, product) {
     body: JSON.stringify({
       from: "Matt Ritterpusch <orders@mattritterpusch.com>",
       to,
-      subject: `Your ${product.name} download is ready`,
-      html: `
-        <p>Thanks for your purchase!</p>
-        <p><strong>${product.name}</strong> is ready to download:</p>
-        <p><a href="${product.url}">${product.url}</a></p>
-        <p>Keep this email for your records -- the link won't expire.</p>
-      `.trim(),
+      subject: `Order confirmed — ${product.name}`,
+      html: renderEmail(product),
     }),
   });
   if (!res.ok) {
