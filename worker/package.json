@@ -1,0 +1,14 @@
+{
+  "name": "mattritterpusch-order-confirmation",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "secret:stripe-webhook": "wrangler secret put STRIPE_WEBHOOK_SECRET",
+    "secret:stripe-key": "wrangler secret put STRIPE_RESTRICTED_KEY",
+    "secret:resend-key": "wrangler secret put RESEND_API_KEY"
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}

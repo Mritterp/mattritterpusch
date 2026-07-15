@@ -1,0 +1,8 @@
+name = "mattritterpusch-order-confirmation"
+main = "src/index.js"
+compatibility_date = "2026-07-15"
+
+# Secrets (set via `npm run secret:*`, never stored in this file):
+#   STRIPE_WEBHOOK_SECRET  -- from the Stripe webhook endpoint's signing secret
+#   STRIPE_RESTRICTED_KEY  -- a Stripe *restricted* key, read-only on Checkout Sessions
+#   RESEND_API_KEY         -- from your Resend account
