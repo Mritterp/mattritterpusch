@@ -46,12 +46,12 @@
       return;
     }
 
-    // Anywhere else in the translucent transport bar acts as a big stop
-    // target -- must preventDefault too, or the card's <a> still navigates.
+    // Anywhere else in the translucent transport bar (its padding/border,
+    // not the track or the play/stop button) should just absorb the click
+    // -- must preventDefault too, or the card's <a> still navigates.
     if (e.target.closest('.card-transport')) {
       e.preventDefault();
       e.stopPropagation();
-      stopAll();
       return;
     }
 
