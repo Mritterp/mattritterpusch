@@ -412,7 +412,7 @@ a { color: inherit; }
    fixed-size play button (width 0 -> calc(100% - 48px)) rather than
    appearing as a full-width bar on its own. */
 .card-transport-row { position: absolute; bottom: 12px; left: 12px; right: 12px; display: flex; align-items: center; z-index: 2; }
-.card-transport { display: flex; align-items: center; gap: 10px; height: 38px; margin-left: 0; width: 0; opacity: 0; overflow: hidden; background: rgba(0,0,0,0.65); border-radius: 2px; padding: 0; transition: width 380ms ease, opacity 260ms ease, margin-left 380ms ease, padding 380ms ease; }
+.card-transport { display: flex; align-items: center; gap: 10px; height: 38px; margin-left: 0; width: 0; opacity: 0; overflow: hidden; background: rgba(0,0,0,0.65); border-radius: 2px; padding: 0; cursor: default; transition: width 380ms ease, opacity 260ms ease, margin-left 380ms ease, padding 380ms ease; }
 .card-transport.open { width: calc(100% - 48px); opacity: 1; margin-left: 10px; padding: 0 12px; }
 .ct-track { flex: 1; height: 6px; background: rgba(255,255,255,0.25); position: relative; cursor: pointer; }
 .ct-fill { position: absolute; top: 0; left: 0; height: 100%; width: 0%; background: var(--accent); pointer-events: none; }
