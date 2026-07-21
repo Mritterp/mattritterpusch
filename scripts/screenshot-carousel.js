@@ -13,7 +13,6 @@
   var root = document.createElement('div');
   root.className = 'screenshot-carousel';
   root.innerHTML = [
-    '<div class="screenshot-carousel__label">Preview</div>',
     '<div class="screenshot-carousel__tabs">',
     '  <button class="screenshot-carousel__tab" type="button" data-mode="phone">Phone</button>',
     '  <button class="screenshot-carousel__tab" type="button" data-mode="desktop">Desktop</button>',
