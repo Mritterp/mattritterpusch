@@ -408,6 +408,20 @@ a { color: inherit; }
 .store-card__foot { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--hairline); margin-top: 14px; padding-top: 14px; }
 .price { font-family: var(--font-display); font-size: var(--text-price-size); color: var(--ink); }
 
+/* App product cards -- icon-badge thumbnail instead of a photo, per design handoff. */
+.store-card--app .store-card__img-wrap { background: linear-gradient(135deg, #3B8AF0 0%, #1A73E8 52%, #13539F 100%); }
+.store-card--app .store-card__meta { font-size: 11px; }
+.store-card--app .store-card__title { font-size: 26px; }
+.store-card--app .store-card__title-link:hover .store-card__title { color: var(--ink); text-decoration: underline; }
+.store-card--app .price { font-family: var(--font-ui); font-size: 18px; font-weight: 400; }
+
+.app-icon-badge { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+.app-icon-badge__mark { width: 150px; height: 150px; border-radius: 32px; background: linear-gradient(160deg, #5AA0F5, #2E7FEA 55%, #1E66C9); display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 26px rgba(0,0,0,.24); }
+.app-icon-badge__mark svg { width: 100px; height: 100px; }
+
+.btn-app { background: #FFFFFF; border: 1px solid #D5D5D5; color: var(--ink); font-size: 13px; font-weight: 600; padding: 10px 18px; }
+.btn-app:hover { background: #F5F5F5; }
+
 /* Card-mounted transport overlay -- the bar grows out from behind the
    fixed-size play button (width 0 -> calc(100% - 48px)) rather than
    appearing as a full-width bar on its own. */
@@ -435,6 +449,7 @@ a { color: inherit; }
 .pdp-media-col { border: 1px solid var(--ink); }
 .pdp-video { position: relative; aspect-ratio: 16/9; overflow: hidden; background: var(--black); }
 .pdp-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.pdp-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: top; }
 .pdp-media-col .price-bar { margin: 0; padding: 16px 24px; border-top: 1px solid var(--ink); }
 
 .pdp-info-col .new-label { margin-bottom: 0; }
@@ -452,6 +467,37 @@ a { color: inherit; }
 .price-bar__btn:hover { background: #EAEAEA; }
 
 .pdp-filelist { margin-top: 24px; }
+
+/* App product pages -- fixed-width media column + screenshot carousel,
+   per design handoff. Blue (#1A73E8) is this handoff's own token, distinct
+   from the site's --accent used on sound-library pages. */
+.pdp-split--app { grid-template-columns: 900px 1fr; gap: 64px; }
+.pdp-split--app .pdp-media-col { border: 1px solid #E5E5E5; background: #F5F0E8; }
+.pdp-split--app .price-bar { background: #1A73E8; padding: 22px 32px; }
+.pdp-split--app .price-bar__price { font-size: 34px; }
+.pdp-split--app .price-bar__note { font-size: 14px; color: rgba(255,255,255,.8); opacity: 1; }
+.pdp-split--app .price-bar__btn { color: #1A73E8; font-size: 14px; letter-spacing: 0.5px; padding: 14px 26px; }
+.pdp-split--app .price-bar__btn:hover { background: #F5F9FF; }
+
+.screenshot-carousel { width: 100%; font-family: Georgia, serif; padding: 36px 0 40px; display: flex; flex-direction: column; align-items: center; }
+.screenshot-carousel__label { font: 600 11px Helvetica, Arial, sans-serif; letter-spacing: 5px; color: #8A9E7E; margin-bottom: 22px; }
+.screenshot-carousel__tabs { display: flex; gap: 36px; margin-bottom: 30px; }
+.screenshot-carousel__tab { font: 600 12px Helvetica, Arial, sans-serif; letter-spacing: 4px; cursor: pointer; padding-bottom: 8px; border-bottom: 2px solid transparent; color: #8A9E7E; transition: color 200ms ease-out; background: none; border-left: none; border-right: none; border-top: none; }
+.screenshot-carousel__tab:hover { color: #3D3A30; }
+.screenshot-carousel__tab.is-active { color: #3D3A30; border-bottom-color: #3D3A30; }
+.screenshot-carousel__stage { position: relative; display: flex; align-items: center; justify-content: center; gap: 20px; }
+.screenshot-carousel__arrow { cursor: pointer; font: 300 40px Helvetica, Arial, sans-serif; color: #3D3A30; transition: opacity 200ms ease-out; user-select: none; width: 40px; text-align: center; background: none; border: none; padding: 0; }
+.screenshot-carousel__arrow:hover { opacity: 0.6; }
+.screenshot-carousel__phone { width: 270px; height: 576px; border: 1px solid #3D3A30; border-radius: 34px; padding: 10px; background: #3D3A30; flex: 0 0 auto; }
+.screenshot-carousel__phone-screen { width: 100%; height: 100%; border-radius: 26px; overflow: hidden; position: relative; background: #fff; }
+.screenshot-carousel__phone-screen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.screenshot-carousel__desktop { width: 600px; border: 1px solid #3D3A30; border-radius: 12px; overflow: hidden; background: #3D3A30; flex: 0 0 auto; }
+.screenshot-carousel__desktop-screen { width: 100%; aspect-ratio: 3840/2088; position: relative; background: #fff; }
+.screenshot-carousel__desktop-screen img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.screenshot-carousel__dots { display: flex; gap: 10px; margin-top: 26px; }
+.screenshot-carousel__dot { width: 8px; height: 8px; border-radius: 50%; cursor: pointer; transition: background 200ms ease-out; background: #C4B89A; border: none; padding: 0; }
+.screenshot-carousel__dot:hover { background: #8A9E7E; }
+.screenshot-carousel__dot.is-active { background: #3D3A30; }
 .pdp-filelist a { font-size: 12px; letter-spacing: 0.06em; color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 2px; }
 .pdp-filelist a:hover { color: var(--accent-hover); border-color: var(--accent-hover); }
 

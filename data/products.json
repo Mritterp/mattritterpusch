@@ -88,5 +88,16 @@
     "stripeLink": "https://buy.stripe.com/8x2aEXdU78wpg2IbYe5J600",
     "fileListUrl": "https://drive.google.com/file/d/1Hn8cInBagku9okTomMaSn1iGJW_GBsEz/view?usp=drive_link",
     "cover": "images/covers/synthesis-and-sound-design.jpg"
+  },
+  {
+    "slug": "production-checklist",
+    "title": "Production Checklist",
+    "category": "Apps",
+    "meta": "App · Productivity",
+    "cardDescription": "Customizable to-do lists for packing, setup and wrap.",
+    "description": "A gear management app built with event and film production in mind. Upload a personal library of your cases and kits, then color code and organize them into common shoots. Automatically generate packing, setup, and wrap checklists based on what's needed for each job. Optional $20/year Pro subscription keeps everything in sync across your phone, tablet, and desktop.",
+    "price": 0,
+    "isNew": true,
+    "downloadUrl": "https://github.com/Mritterp/tyo-gig-checklist/releases/latest/download/Production-Checklist-Setup-1.0.2.exe"
   }
 ]
