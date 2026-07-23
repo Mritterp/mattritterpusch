@@ -98,6 +98,7 @@
     "description": "A gear management app built with event and film production in mind. Upload a personal library of your cases and kits, then color code and organize them into common shoots. Automatically generate packing, setup, and wrap checklists based on what's needed for each job. Optional $20/year Pro subscription keeps everything in sync across your phone, tablet, and desktop.",
     "price": 0,
     "isNew": true,
-    "downloadUrl": "https://github.com/Mritterp/tyo-gig-checklist/releases/latest/download/Production-Checklist-Setup-1.0.2.exe"
+    "downloadUrlWindows": "https://github.com/Mritterp/tyo-gig-checklist/releases/download/v1.0.3/Production-Checklist-Setup-1.0.3.exe",
+    "downloadUrlMac": "https://github.com/Mritterp/tyo-gig-checklist/releases/download/v1.0.3/Production.Checklist-1.0.2-arm64.dmg"
   }
 ]
